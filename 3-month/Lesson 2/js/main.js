@@ -39,15 +39,30 @@
 // console.log(username);
 
 //? Non-Primitive data type -> Object
-var car = {
-    model: "Matiz",
-    year: 2022,
-    isBest: false,
-    radio: true,
-    owners: {
-        user1: "Ibrohim",
-        user2: "Abror",
-        user3: "Ismoil",
-    }
-};
-console.log(car);
+// var car = {
+//     model: "Matiz",
+//     year: 2022,
+//     isBest: false,
+//     radio: true,
+//     owners: {
+//         user1: "Ibrohim",
+//         user2: "Abror",
+//         user3: "Ismoil",
+//     }
+// };
+// console.log(car);
+
+//? var -> const, let
+// var x = "Ibrohim";
+// x = 5;
+// console.log(x);
+//? let 
+// let username = "Ibrohim";
+// username = 10;
+// console.log(username);
+// var username, z;
+// z = 15;
+// console.log(username, z);
+//? const 
+// const x = 10;
+// console.log(x);
