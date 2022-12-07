@@ -51,4 +51,3 @@
 
 //     let result = 2022 - birthYear;
 //     alert(`Your age is ${result}`);
-}
