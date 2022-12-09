@@ -44,22 +44,25 @@
 // }
 
 //* Amaliyot
-const user = {
-    isPrivate: true,
-    username: "dabryak_04",
-    birthYear: 2007,
-    password: 587150,
-};
+// const user = {
+//     isPrivate: true,
+//     username: "dabryak_04",
+//     birthYear: 2007,
+//     password: 587150,
+// };
 
-const username = prompt("Enter your username");
-const password = prompt("Enter your password");
+// const username = prompt("Enter your username");
+// const password = prompt("Enter your password");
 
-if(username == user.username) {
-    if(Number(password) === user.password) {
-        alert("Saytga xush kelibsiz!");
-    } else {
-        alert("Your password is incorrect");
-    }
-} else {
-    alert("Sizning username noto'g'ri");
-}
+// if(username == user.username) {
+//     if(Number(password) === user.password) {
+//         alert("Saytga xush kelibsiz!");
+//     } else {
+//         alert("Your password is incorrect");
+//     }
+// } else {
+//     alert("Sizning username noto'g'ri");
+// };
+
+
+prompt("Online magazinimizga xush kelibsiz!\ Iltimos yoshingizni kiriting:");
