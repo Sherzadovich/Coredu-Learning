@@ -65,4 +65,41 @@
 // };
 
 
-prompt("Online magazinimizga xush kelibsiz!\ Iltimos yoshingizni kiriting:");
+// const obj = {
+//     age: 18,
+//     age2: 60,
+// }
+
+// const userage = prompt("Online magazinimizga xush kelibsiz! \nIltimos yoshingizni kiriting:");
+
+// const result = obj.age - userage;
+// const result2 = obj.age - userage;
+
+// const bigAge = confirm("Do'da undan ko'ra nevarala bn maza qb o'ynamismi? Xolasez sotvolin!");
+
+// if(userage >= obj.age) {
+//     if(userage >= obj.age2) {
+//         alert(bigAge);
+//     } else if(3 > 4) {
+//         alert("Sotib olishiz mumkin!")
+//     } else if(4 > 2) {
+//         alert("To'g'ri tanlov uchun rahmat!")
+//     }
+// } else {
+//     alert(result + "yildan keyin keling, hozir mumkin emas");
+// }
+
+const mainAge = 18;
+
+const username = prompt("Ismingizni kiriting:")
+const userage = prompt("Online magazinimizga xush kelibsiz! \nIltimos yoshingizni kiriting:");
+
+const result = mainAge - userage;
+
+const lastResult = 2022 + result;
+
+if(userage >= mainAge) {
+    alert("Sotib olishiz mumkin!")
+} else {
+    alert(`Xurmatli ${username}! ` + lastResult +"-yilda keling! Xozir sizga mumkin emas!")
+}
