@@ -83,7 +83,8 @@ const result2 = obj.age2 - userage;
 
 if(userage >= obj.age) {
     if(userage >= obj.age2) {
-        if(confirm("Do'da undan ko'ra nevarala bn maza qb o'ynamismi? Xolasez sotvolin!") == true) {
+        const wantToBuy = confirm("Do'da undan ko'ra nevarala bn maza qb o'ynamismi? Xolasez sotvolin!")
+        if(wantToBuy == true) {
             alert("Sotib olishiz mumkin!");
         }
         else{
