@@ -24,3 +24,7 @@
 //     user = "Xurmatli mijoz!"
 // }
 // console.log(user);
+
+//? Logical and (&&) vs or (||)
+// console.log((4==6 || 7==9) && 6 == 6);
+// console.log(4==4 || 6 == 9);
