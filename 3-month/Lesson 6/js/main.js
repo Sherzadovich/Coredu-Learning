@@ -34,3 +34,19 @@
 // alert("Hello");
 // console.log(window);
 
+//? Array
+// const username = [
+//     {name: "Ibrohim", friends: ["Olim", "Qobil", "Anvar"]}, 
+//     {name: "Ismoil"}, 
+//     {name: "Abror"}, 
+//     {name: "Toshmat"}
+// ];
+// username[3] = "Eshmat";
+
+// console.log(username[0].name);
+// console.log(username[0].friends[1]);
+// const user = {
+//     user1: "Ibrohim",
+//     user2: "Ismoil",
+//     user3: "Abror",
+// }
