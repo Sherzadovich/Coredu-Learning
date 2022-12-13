@@ -58,3 +58,14 @@
 // users[users.length] = "Eshmat";
 
 // console.log(users[users.length - 1]);  //! last element
+
+//* Amaliyot
+// const users = [];
+
+// function addUser() {
+//     const username = prompt("Enter your name");
+//     users[users.length] = username;
+//     console.log(users);
+// }
+
+// addUser();
