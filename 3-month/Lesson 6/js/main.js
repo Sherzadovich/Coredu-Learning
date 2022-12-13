@@ -28,3 +28,9 @@
 //? Logical and (&&) vs or (||)
 // console.log((4==6 || 7==9) && 6 == 6);
 // console.log(4==4 || 6 == 9);
+
+//? DOM => Document object model
+// window.alert = null;
+// alert("Hello");
+// console.log(window);
+
