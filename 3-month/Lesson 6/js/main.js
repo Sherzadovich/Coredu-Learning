@@ -50,3 +50,11 @@
 //     user2: "Ismoil",
 //     user3: "Abror",
 // }
+
+//? Length, adding new elements
+// const users = ["Ibrohim", "Ismoil", "Palonchi", "Pistonchi"];
+
+// users[users.length] = "Toshmat";
+// users[users.length] = "Eshmat";
+
+// console.log(users[users.length - 1]);  //! last element
