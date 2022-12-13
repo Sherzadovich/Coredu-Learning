@@ -69,3 +69,43 @@
 // }
 
 // addUser();
+
+const users = {
+    username: null,
+    pass: null,
+}
+
+function signUp() {
+    const user = prompt("Enter your username:");
+    const password = prompt("Enter password:");
+
+    users.username = user;
+    users.pass = password;
+     
+    if(user) {
+        users.username = user;
+        if(password) {
+            users.pass = password;
+        } else {
+        alert("You did not enter your password");
+        }
+    } else{
+        alert("You did not enter your username");
+    };
+
+    console.log(users);
+};
+
+function signIn() {
+    const user = prompt("Enter your username:");
+    const password = prompt("Enter password:");
+
+    if(user == users.username) {
+        if(password == users.pass) {
+        } else {
+            alert("Your password is incorrect");
+        }
+    } else {
+        alert("Your username is incorrect");
+    }
+};
