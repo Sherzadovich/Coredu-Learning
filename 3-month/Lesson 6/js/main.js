@@ -102,6 +102,7 @@ function signIn() {
 
     if(user == users.username) {
         if(password == users.pass) {
+            alert("Welcome to website")
         } else {
             alert("Your password is incorrect");
         }
