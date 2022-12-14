@@ -22,7 +22,7 @@
 
 
 //? Array methods => push, pop, unshift, shift
-const arr = [1, 2, 3];
+// const arr = [1, 2, 3];
 // arr[arr.length] = "Ibrohim";
 // arr[arr.length] = "Ismoil";
 
@@ -43,6 +43,17 @@ const arr = [1, 2, 3];
 // console.log(data);
 // console.log(arr);
 
+
+//? for loop
+// for(let i = 0; i < 10; i++) {
+//     console.log(i);
+// }
+
+// const arr = ["Jahongir", "Jasur", "Mirvohid", "Ismoil", "Abbos", "Eshmat", "Toshmat", "Ronaldo", "Messi"];
+
+// for(let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+// }
 
 //* Amaliyot
 // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
