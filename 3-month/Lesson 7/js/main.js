@@ -88,3 +88,28 @@
 // if(!err) {
 //     console.log("Salom dunyo");
 // }
+
+//? DOM => document object model
+// document.getElementById("btn").textContent = "push here";
+// console.dir();
+
+// const btnEl = document.getElementById("btn");
+// let isClicked = false;
+
+// function modifier() {
+//     btnEl.textContent = btnEl.textContent === 'click' ? "push here" : 'click';
+    // if(!isClicked) {
+    //     btnEl.textContent = 'push here';
+    //     isClicked = true;
+    // } else {
+    //     btnEl.textContent = 'click';
+    //     isClicked = false;
+    // }
+}
+// function modifier() {
+//     if(btnEl.textContent === 'click') {
+//         btnEl.textContent = 'push here';
+//     } else {
+//         btnEl.textContent = 'click';
+//     }
+// }
