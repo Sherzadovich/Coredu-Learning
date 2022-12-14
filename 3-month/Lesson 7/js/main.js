@@ -113,3 +113,15 @@
 //         btnEl.textContent = 'click';
 //     }
 // }
+
+//* getElementById, getElementByClassName, getElementByName, getElementByTagName
+// const btnEl = document.getElementById("btn");
+
+// const pEls = document.getElementsByClassName("text");
+// console.log(pEls[2]);
+
+// const inputEls = document.getElementsByName("car");
+// console.log(inputEls);
+
+// const pTagEls = document.getElementsByTagName("input");
+// console.log(pTagEls);
