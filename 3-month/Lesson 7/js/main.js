@@ -59,6 +59,15 @@
 // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // function finder(array) {
+//     for(let i = 0; i < array.length; i++) {
+//         switch(array[i] % 2) {
+//             case 0:
+//                 console.log(`${array[i]} juft son`);
+//                 break;
+//             default:
+//                 console.log(`${array[i]} toq son`);    
+//         }
+//     }
 // };
 
 // finder(arr);
