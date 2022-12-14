@@ -71,3 +71,16 @@
 // };
 
 // finder(arr);
+
+//? ! => not
+// if(!false) {
+//     console.log("Hello");
+// }
+
+// const text = "Ismoil";
+
+// if(2 == 3) {
+//     console.log("Hello");
+// } else if("Ibrohim" !== text) {
+//     console.log(text + " Ibrohimga teng emas");
+// }
