@@ -125,3 +125,34 @@
 
 // const pTagEls = document.getElementsByTagName("input");
 // console.log(pTagEls);
+
+
+//? Practice
+const arr = [];
+
+function signUp() {
+    const username = prompt("Enter your username:");
+    const pass = prompt("Enter your password:");
+    
+    arr.push({username});
+    arr.push({pass});
+
+    // arr.push(obj.username);
+    // arr.push(obj.password);
+    console.log(arr);
+};
+
+function signIn() {
+    const username = prompt("Enter your username:");
+    const pass = prompt("Enter your password:");
+
+    if(username == arr.length) {
+        if(pass == arr.length) {
+            alert("welcome website");
+        } else {
+            alert("Your password is incorrect");
+        }
+    } else {
+        alert("Your username is incorrect")
+    }
+};
