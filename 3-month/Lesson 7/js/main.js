@@ -105,7 +105,7 @@
     //     btnEl.textContent = 'click';
     //     isClicked = false;
     // }
-}
+// }
 // function modifier() {
 //     if(btnEl.textContent === 'click') {
 //         btnEl.textContent = 'push here';
