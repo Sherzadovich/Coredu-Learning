@@ -84,3 +84,7 @@
 // } else if("Ibrohim" !== text) {
 //     console.log(text + " Ibrohimga teng emas");
 // }
+
+// if(!err) {
+//     console.log("Salom dunyo");
+// }
