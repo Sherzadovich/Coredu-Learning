@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    padding-top: 300px;
+}
+
+#signUpBtn {
+    padding: 16px 26px;
+    border-radius: 10px;
+    border: 1px solid blueviolet;
+    background-color: blueviolet;
+    color: #fff;
+    font-size: 14px;
+}
+#signInBtn {
+    padding: 16px 26px;
+    border-radius: 10px;
+    border: 1px solid blueviolet;
+    background-color: blueviolet;
+    color: #fff;
+    font-size: 14px;
+}
