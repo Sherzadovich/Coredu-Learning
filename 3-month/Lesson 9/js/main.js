@@ -62,4 +62,28 @@ signUpBtn.addEventListener("click" , () => {
         alert("Ma'lumotlarni to'liq kirgizing!")
     };
     console.log(users);
+});
+
+//* sign in 
+const signInBtn = document.querySelector("#signInBtn");
+
+signInBtn.addEventListener("click" , () => {
+    const username = signInForm.children[1].value;
+    const password_1 = signInForm.children[2].value;
+
+    if(users.length !== 0) {
+        let isFound = false;
+        for(let i = 0; i < users.length; i++) {
+            const user = users[i];
+            if(user.username === username && user.password === password_1) {
+                alert("Welcome to the website!");
+                isFound = true;
+            }
+        };
+        if(!isFound) {
+            alert("Your username or password is incorrect!")
+        }
+    } else {
+        alert("Ro'yxatdan o'tgan foydalanuvchilar yo'q!")
+    }
 })
