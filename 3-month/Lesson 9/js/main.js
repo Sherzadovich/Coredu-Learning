@@ -36,6 +36,19 @@
 // });
 
 
+//? setAttribute() vs getAttribute()
+// const btnEl = document.querySelector("#btn");
+
+// const idAttr = btnEl.getAttribute("id"); // btn chiqaradi
+// btnEl.setAttribute("disabled", true);
+
+// document.body.addEventListener("click" , function () {
+//     btnEl.removeAttribute("disabled");
+// });
+
+// console.log();
+
+
 //? Amaliyot
 // let isSignIn = false;
 // const signUpForm = document.querySelector(".signUp");
