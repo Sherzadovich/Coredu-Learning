@@ -36,10 +36,45 @@
 // console.log(userFromEnt);
 
 //? keyUp, keyDown, keyPress
-const searchInput = document.querySelector("#search");
+// const searchInput = document.querySelector("#search");
 
-document.addEventListener("keyup", (event) => {
-    if(event.key === "Q") {
-    searchInput.focus();
-    }
-});
+// document.addEventListener("keyup", (event) => {
+//     if(event.key === "Q") {
+//     searchInput.focus();
+//     }
+// });
+
+//? setTimeout vs setInterval
+// setTimeout(() => {
+//     console.log("Boooom");
+// }, 2000);
+
+
+// setInterval(() => {
+//     console.log("Boooom");
+// }, 2000);
+
+// const timeoutBtn = document.querySelector("#timeout");
+// const intervalBtn = document.querySelector("#interval");
+// const startBtn = document.querySelector("#start");
+
+// let timer = null;
+// let warning = null;
+
+// startBtn.addEventListener("click" , () => {
+//     let i = 1;
+//     warning = setInterval(() => {
+//         console.log(i++);
+//     }, 1000);
+    
+//     timer = setTimeout(() => {
+//         console.log("Bbbbbooooooooooooooommmmm");
+//         clearInterval(warning);
+//     }, 3000);
+// });
+
+// timeoutBtn.addEventListener("click", () => {
+//     clearTimeout(timer);
+//     clearInterval(warning);
+//     alert("stopped")
+// })
