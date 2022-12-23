@@ -34,3 +34,12 @@
 
 // const userFromEnt = Object.fromEntries(userEnt);
 // console.log(userFromEnt);
+
+//? keyUp, keyDown, keyPress
+const searchInput = document.querySelector("#search");
+
+document.addEventListener("keyup", (event) => {
+    if(event.key === "Q") {
+    searchInput.focus();
+    }
+});
