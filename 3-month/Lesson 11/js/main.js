@@ -50,3 +50,53 @@
 // const index = Math.floor(Math.random() * arr.length)
 
 // console.log(arr[index], index);
+
+//? Amaliyot
+const recognition = new webkitSpeechRecognition();
+const recognition2 = new webkitSpeechRecognition();
+recognition.lang = "uz-UZ";
+recognition2.lang = "uz-UZ";
+
+const usernameBtn = document.querySelector("#username");
+const passwordBtn = document.querySelector("#password");
+const signUpBtn = document.querySelector("#signUp");
+let usernameInput = document.querySelector("#usernameInput");
+let passwordInput = document.querySelector("#passwordInput");
+const box = document.querySelector(".box");
+
+usernameBtn.addEventListener("click", () => {
+    recognition.start();
+});
+
+passwordBtn.addEventListener("click" , () => {
+    recognition2.start();
+});
+
+recognition.onresult = (value) => {
+    usernameInput.value = value.results[0][0].transcript;
+};
+
+recognition2.onresult = (pass) => {
+    passwordInput.value = pass.results[0][0].transcript;
+};
+
+//* sign up
+const users = [];
+
+signUpBtn.addEventListener("click" , () => {
+    const username = box.children[0].value;
+    const password = box.children[2].value;
+
+    if(username && password) {
+        const user = {
+            username,
+            password: password,
+        }
+
+        users.push(user);
+        alert("Siz ro'yxatdan muvaffaqiyatli o'tdingiz!");
+    } else {
+        alert("Ma'lumotlarni to'liq kirgizing!")
+    };
+    console.log(users);
+});

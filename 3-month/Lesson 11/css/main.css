@@ -1,0 +1,21 @@
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding-top: 200px;
+}
+
+.box input {
+    border: none;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 5px 5px;
+}
+
+.box button {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
