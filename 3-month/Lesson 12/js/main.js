@@ -2,13 +2,13 @@
 const todoForm = document.querySelector("#todoForm");
 const cardsEl = document.querySelector("#cards");
 
-const todos = [];
+let todos = [];
 
 function render() {
     cardsEl.innerHTML = "";
     for(let i = 0; i < todos.length; i++) {
         const template = `
-        <div class="todoCard col-md-3 p-3 ${todos[i].isCompleted ? "bg-success" : "bg-light"} rounded">
+        <div class="todoCard col-md-3 p-3 ${todos[i].isCompleted ? "bg-success text-light" : "bg-light"} rounded">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="todo-${todos[i].id}"
                     ${todos[i].isCompleted ? "checked" : ""} 
@@ -18,7 +18,7 @@ function render() {
                 </div>
                 <div class="d-flex justify-content-end gap-3 mt-4">
                     <button class="btn btn-warning">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-danger" onclick="deleteTodo(${todos[i].id})">Delete</button>
                 </div>
         </div>
         `;
@@ -51,3 +51,17 @@ function toggleComplete(id) {
     }
     render();
 };
+
+function deleteTodo(id) {
+    const isAccepted = confirm("Do you really delete this todo?")
+    if(isAccepted) {
+        const newArray = [];
+        for(let i=0; i<todos.length; i++) {
+        if(todos[i].id !== id) {
+            newArray.push(todos[i]);
+        }
+    }
+    todos = newArray;
+    render();
+    }
+}
