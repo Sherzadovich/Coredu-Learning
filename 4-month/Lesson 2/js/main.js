@@ -1,3 +1,4 @@
+//? Onchange
 // const radios = document.getElementsByName("gender");
 
 // for(let i=0; i<radios.length; i++) {
