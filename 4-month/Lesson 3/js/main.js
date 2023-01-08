@@ -38,3 +38,14 @@
 // });
 
 // console.log(newArray);
+
+//? Reduce
+// const array1 = [1,2,3,4];
+
+// 100 + 1 + 2 + 3 + 4
+// const sumWithInitial = array1.reduce(
+//     (accumulator, currentValue) => accumulator + currentValue, 
+//     100
+// );
+
+// console.log(sumWithInitial);
