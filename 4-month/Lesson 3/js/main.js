@@ -93,7 +93,30 @@
 
 //! Yechim
 
+// const user = [
+//     {
+//         id: 1,
+//         name: "Ibrohim"
+//     },
+//     {
+//         id: 2,
+//         name: "Ismoil"
+//     },
+//     {
+//         id: 3,
+//         name: "Shohjahon"
+//     }
+// ];
 
+// function findUser(arr) {
+//     for(let i=0; i<arr.length; i++) {
+//         if(arr[i].name === "Ibrohim") {
+//             console.log(arr[i]);
+//         }
+//     }
+// };
+
+findUser(user)
 
 //? loop from backwards
 
