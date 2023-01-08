@@ -50,6 +50,22 @@
 
 // console.log(sumWithInitial);
 
+//! Yechim
+// const array = [20, 13, 15];
+
+// function reduceFunction(arr, call) {
+//     const result = [];
+//     for(let i = 0; i < arr.length; i++) {
+//         const reducedArr = call(arr[i], i);
+//         result.push(reducedArr);
+//     }
+//     return result;
+// }
+
+// const reduced = reduceFunction(array, (e, i) => e);
+
+// console.log(reduced);
+
 //? Reverse
 // const arr = [1, 2, 3, 4];
 // const reversedArr = arr.reverse();
@@ -74,6 +90,10 @@
 // const foundUser = user.find((user) => user.name === "Ibrohim");
 
 // console.log(foundUser);
+
+//! Yechim
+
+
 
 //? loop from backwards
 
