@@ -7,7 +7,16 @@ let todos = [];
 function render() {
     cardsEl.innerHTML = "";
     for(let i = 0; i < todos.length; i++) {
-        const template = `
+        const template = 
+        todos[i].isEditing ? `
+        <form class="todoCard col-md-3 p-3 bg-light d-flex flex-column align-items-end" onsubmit="return editTodo(event, ${todos[i].id})">
+            <input type="text" class="form-control" id="editingTodo" placeholder="Edit your todo..." value="${todos[i].task}">
+            <div>
+                <button type="submit" class="btn btn-success mt-3">Save</button>
+                <button type="button" class="btn btn-danger mt-3" onclick="toggleEditing(${todos[i].id})">Cancel</button>
+            </div>
+        </form>`
+        : `
         <div class="todoCard col-md-3 p-3 ${todos[i].isCompleted ? "bg-success text-light" : "bg-light"} rounded">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="todo-${todos[i].id}"
@@ -64,4 +73,24 @@ function deleteTodo(id) {
     todos = newArray;
     render();
     }
+}
+
+function toggleEditing(id) {
+    for(let i=0; i< todos.length; i++) {
+        if(todos[i].id === id) {
+            todos[i].isEditing = !todos[i].isEditing;
+        }
+    }
+    render();
+}
+
+function editTodo(event, id) {
+    event.preventDefault();
+    for(let i = 0; i < todos.length; i++) {
+        if(todos[i].id === id) {
+            todos[i].task = event.target[0].value;
+            todos[i].isEditing = !todos[i].isEditing;
+        }
+    }
+    render();
 }
