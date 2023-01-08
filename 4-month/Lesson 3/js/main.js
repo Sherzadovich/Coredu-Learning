@@ -49,3 +49,8 @@
 // );
 
 // console.log(sumWithInitial);
+
+//? Reverse
+// const arr = [1, 2, 3, 4];
+// const reversedArr = arr.reverse();
+// console.log(reversedArr);
