@@ -71,6 +71,19 @@
 // const reversedArr = arr.reverse();
 // console.log(reversedArr);
 
+//! yechim
+
+// const arr = [1, 2, 3, 4];
+
+
+// function reverser(arr) {
+//     for(let i = arr.length - 1; i >= 0; i--) {
+//         console.log(arr[i]);
+//     }
+// }
+
+// reverser(arr);
+
 //? Find
 // const user = [
 //     {
@@ -116,7 +129,7 @@
 //     }
 // };
 
-findUser(user)
+// findUser(user);
 
 //? loop from backwards
 
