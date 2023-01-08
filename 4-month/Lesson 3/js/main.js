@@ -74,3 +74,28 @@
 // const foundUser = user.find((user) => user.name === "Ibrohim");
 
 // console.log(foundUser);
+
+//? loop from backwards
+
+// const user = [
+//     {
+//         id: 1,
+//         name: "Ibrohim"
+//     },
+//     {
+//         id: 2,
+//         name: "Ismoil"
+//     },
+//     {
+//         id: 3,
+//         name: "Shohjahon"
+//     }
+// ];
+
+// for(let i=0 ; i<user.length; i++) {
+//     console.log(i);
+// };
+
+// for(let i=user.length-1; i>=0; i--) {
+//     console.log(user[i]);
+// };
