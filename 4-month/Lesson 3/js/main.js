@@ -54,3 +54,23 @@
 // const arr = [1, 2, 3, 4];
 // const reversedArr = arr.reverse();
 // console.log(reversedArr);
+
+//? Find
+// const user = [
+//     {
+//         id: 1,
+//         name: "Ibrohim"
+//     },
+//     {
+//         id: 2,
+//         name: "Ismoil"
+//     },
+//     {
+//         id: 3,
+//         name: "Shohjahon"
+//     }
+// ];
+
+// const foundUser = user.find((user) => user.name === "Ibrohim");
+
+// console.log(foundUser);
