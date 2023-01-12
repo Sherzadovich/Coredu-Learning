@@ -26,3 +26,24 @@
 // console.log(arr[0]("Ibrohim", "Jalilov"));
 
 // console.log(user.sayFullName());
+
+//? 3 scopes => Function/local scope, Block scope and Global scope
+//? Global
+// const username = "Pistonchi";
+
+// function logger() {
+//     //? function/local scope
+//     const user = "Palonchi";
+//     console.log(user);
+// }
+
+// console.log(user);  //! user is not global variable
+
+// logger();
+
+// //? Block
+// if(1) {
+//     const user = "Ibrohim";
+// }
+
+// console.log(user);
