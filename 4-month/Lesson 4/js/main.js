@@ -60,3 +60,17 @@
 // console.log(lalaku);
 
 // var user = {name: "userbek"}; //! var o'zgaruvchilari window objectida saqlanadi
+
+//? using variables which was declared in function
+
+// function myFunc(cb) {
+//     const username = "Ibrohim";
+//     cb(username);
+    // return username;
+// };
+
+// let user = null;
+
+// myFunc((name) => {
+//     user = name;
+// });
