@@ -47,3 +47,16 @@
 // }
 
 // console.log(user);
+
+//? var in block scope
+// {
+//     var username = "blabla";
+// };
+//! var is not available in global scope when it was declared in function scope
+// function mufunc() {
+//     var lalaku = "lalaku";
+// }
+
+// console.log(lalaku);
+
+// var user = {name: "userbek"}; //! var o'zgaruvchilari window objectida saqlanadi
