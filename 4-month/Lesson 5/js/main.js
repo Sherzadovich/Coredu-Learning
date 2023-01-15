@@ -63,3 +63,11 @@
 // for(qwerty of arr) {  //! for of faqatgina array uchun ishlaydi
 //     console.log(qwerty);
 // }
+
+//? while
+// let i = 0;
+
+// while(i < 10) { //! qavs ichidagi amal false bo'lguncha ishlidi
+//     console.log(i);
+//     i++;
+// };
