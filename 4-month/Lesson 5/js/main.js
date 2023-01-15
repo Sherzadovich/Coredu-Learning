@@ -42,3 +42,24 @@
 //         }
 //     });
 // });
+
+
+//? for in vs for of  
+// const arr = [1,2,3,4,5,6];
+
+// const user = {
+//     name: "Ibrohim",
+//     age: 20,
+// };
+
+// for(key in user) {  //! for in array bilan object uchun ishlaydi
+//     console.log(user[key]);
+// }
+
+// for(index in arr) {
+//     console.log(index);
+// }
+
+// for(qwerty of arr) {  //! for of faqatgina array uchun ishlaydi
+//     console.log(qwerty);
+// }
