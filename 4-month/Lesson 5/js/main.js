@@ -71,3 +71,56 @@
 //     console.log(i);
 //     i++;
 // };
+
+//? Football players
+// const players = [];
+// const playerForm = document.querySelector("#playerForm");
+// const playersList = document.querySelector("#players");
+// const separatorBtn = document.querySelector("#separator")
+
+// playerForm.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//     if(event.target[0].value.trim() && !players.includes(event.target[0].value.trim())) {
+//         players.push(event.target[0].value);
+//         event.target[0].value = "";
+//         playersList.innerHTML = `<h2>${players.join(", ")}</h2>`
+//     }
+// });
+
+// const teams = [[], []];
+
+// separatorBtn.addEventListener("click", () => {
+//     if(players.length > 8 && players.length % 2 === 0) {
+
+//         let randomPlayer = Math.floor(Math.random() * players.length);
+
+//         while(teams[0].length !== players.length) {
+//             teams[0].push(players[randomPlayer])
+//             players.splice(randomPlayer, 1)
+//             randomPlayer = Math.floor(Math.random() * players.length);
+//         };
+
+//         players.forEach((p) => {
+//             teams[1].push(p);
+//         });
+
+//         renderTeams();
+//     } else {
+//         alert("O'yinchilar soni 8 tadan kam yoki juft emas");
+//     }
+// });
+
+// const teamsContainer = document.querySelector("#teams");
+
+// function renderTeams() {
+//     teams.forEach((team) => {
+//         const ulList = document.createElement("ul");
+
+//         team.forEach((player) => {
+//             const h4 = `<li>${player}</li>`;
+//             ulList.innerHTML += h4;
+//         });
+
+//         teamsContainer.appendChild(ulList);
+//     });
+// };
