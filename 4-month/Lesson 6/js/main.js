@@ -11,3 +11,8 @@ const jsonUser = JSON.stringify(user); // JSON format  {"name":"Ibrohim","age":2
 // console.log(parsedUser);
 
 //? Storages => localStorage, Cookie Storage, session storage
+// localStorage.setItem("myUser", jsonUser)
+
+// const parsedData = JSON.parse(localStorage.getItem("myUser"));
+
+// console.log(parsedData);
