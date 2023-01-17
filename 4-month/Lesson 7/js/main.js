@@ -47,3 +47,55 @@
 
 
 // func({name: "Ibrohim", job: "developer", age: 20})
+
+
+// function myArr([t,...others]) {
+//     console.log(t, others);
+// }
+
+// myArr(["Redbek", "Bluebek", "Greenxon"])
+
+//* Object distructuring
+// const user = {
+//     name: "Jahongir",
+//     job: "WebDeveloper",
+// }
+
+// function myFunc() {
+//     const { name } = user;
+//     console.log(name);
+// }
+
+// myFunc();
+
+//? Spread
+//* Shallow clone
+// const arr = [1,2,3,4,5];
+// const newArr = arr;
+// arr[0] = 9;
+// console.log(newArr); // [9,2,3,4,5]
+// console.log(arr); // [9,2,3,4,5]
+
+//* Deep clone
+// const arr= [1,2,3,4,5];
+// const newArr = [...arr];
+// arr[0] = 9;
+// console.log(newArr); // [1,2,3,4,5]
+// console.log(arr); // [9,2,3,4,5]
+
+//? 
+// const user = {
+//     name: "Jahongir",
+//     job: "WebDeveloper",
+// }
+
+// const newUser = {...user, job: "Full-Stack Developer"}
+
+// console.log(newUser);
+
+//? 
+// function newUser({name, job, age, status, ...others}) {
+//     console.log(name, job, status, age);
+// }
+
+// newUser({job: "WebDeveloper", status: "student", name: "Ibrohim", age: 20, houseNum: 45, work: null})
