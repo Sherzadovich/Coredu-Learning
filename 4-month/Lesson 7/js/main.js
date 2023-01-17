@@ -45,4 +45,5 @@
 //     console.log(job, others);
 // }
 
+
 // func({name: "Ibrohim", job: "developer", age: 20})
