@@ -27,3 +27,19 @@
 //             console.log(err);
 //         })
 // });
+
+//? Gender by name
+
+// document.querySelector("#form").addEventListener('submit', (event) => {
+//     event.preventDefault();
+//     const name = event.target[0].value;
+//     fetch(`https://api.genderize.io?name=${name}`)
+//     .then(res => {
+//         return res.json();
+//     }).then((res) => {
+//         console.log(res);
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     })
+// });
