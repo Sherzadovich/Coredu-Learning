@@ -48,6 +48,7 @@ todoForm.addEventListener("submit", (event) => {
     };
 
     todos.push(todo);
+    localStorage.setItem("myUser", JSON.stringify(todos));
     render();
     console.log(todos);
 });
@@ -94,3 +95,5 @@ function editTodo(event, id) {
     }
     render();
 }
+
+// const jsonTodos = JSON.parse(todos)
