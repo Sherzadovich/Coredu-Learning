@@ -2,7 +2,9 @@
 const todoForm = document.querySelector("#todoForm");
 const cardsEl = document.querySelector("#cards");
 
-let todos = [];
+let todos = JSON.parse(localStorage.getItem('myUser')) || [];
+
+render()
 
 function render() {
     cardsEl.innerHTML = "";
@@ -26,7 +28,7 @@ function render() {
                     >${todos[i].task}</label>
                 </div>
                 <div class="d-flex justify-content-end gap-3 mt-4">
-                    <button class="btn btn-warning">Edit</button>
+                    <button class="btn btn-warning" onclick="toggleEditing(${todos[i].id})">Edit</button>
                     <button class="btn btn-danger" onclick="deleteTodo(${todos[i].id})">Delete</button>
                 </div>
         </div>
