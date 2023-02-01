@@ -31,8 +31,8 @@
 //? Global
 // const username = "Pistonchi";
 
-// function logger() {
 //     //? function/local scope
+// function logger() {
 //     const user = "Palonchi";
 //     console.log(user);
 // }
