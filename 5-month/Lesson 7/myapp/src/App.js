@@ -1,3 +1,5 @@
+import Header from "./components/Header/Header"
+import Footer from "./components/Footer/Footer"
 import './App.css';
 
 function App() {
@@ -10,9 +12,17 @@ function App() {
   //* class = className
   //* for = htmlFor
 
+
+  //* Interpolation
+  // const name = "Ibrohim";
+  // const data = 9 > 8 ? "Hello" : "Bye";
   return (
     <div className="App">
-      <h1 style={h1style}>Bolla hammaga salom!</h1>
+      <div className="container">
+        <Header />
+      {/* {data} */}
+        <Footer />
+      </div>
     </div>
   );
 }
