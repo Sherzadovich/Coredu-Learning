@@ -1,4 +1,5 @@
 import Header from "./components/Header/Header"
+import Card from "./components/Cards/Card";
 import Footer from "./components/Footer/Footer"
 import './App.css';
 
@@ -20,7 +21,7 @@ function App() {
     <div className="App">
       <div className="container">
         <Header />
-      {/* {data} */}
+        <Card />
         <Footer />
       </div>
     </div>
