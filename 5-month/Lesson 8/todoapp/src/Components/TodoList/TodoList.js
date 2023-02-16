@@ -7,6 +7,7 @@ export default function TodoList({ todos }) {
         {
             todos.map(todo => {
                 return <Todo 
+                key={todo.id}
                 task={todo.task}
                 id={todo.id}
                 isEditing={todo.isEditing}
