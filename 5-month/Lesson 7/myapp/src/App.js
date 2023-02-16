@@ -1,7 +1,8 @@
 import Header from "./components/Header/Header"
-import Card from "./components/Cards/Card";
+// import Card from "./components/Cards/Card";
 import Footer from "./components/Footer/Footer"
 import './App.css';
+import UsersList from "./components/UsersList/UsersList";
 
 function App() {
 
@@ -21,7 +22,8 @@ function App() {
     <div className="App">
       <div className="container">
         <Header />
-        <Card />
+        <UsersList/>
+        {/* <Card name="Ibrohim" age="20" description="Bala"/> */}
         <Footer />
       </div>
     </div>

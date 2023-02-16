@@ -1,4 +1,4 @@
-import logo from "../../Img/logo.png";
+import logo from "../../Img/Слой 1.svg";
 import "../Header/Header.css";
 
 function Header() {
@@ -11,9 +11,9 @@ function Header() {
 
             <ul>
                 {
-                    pages.map(page => {
+                    pages.map((page, i) => {
                         return (
-                            <li>
+                            <li key={i}>
                                 <a hraf="#link">{page}</a>
                             </li>
                         )

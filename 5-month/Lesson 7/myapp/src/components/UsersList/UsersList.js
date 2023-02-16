@@ -1,5 +1,6 @@
 import Card from "../Cards/Card";
 
+
 function UsersList() {
 
     const users = [
@@ -20,9 +21,9 @@ function UsersList() {
         },
     ];
     
-    return (
+    return(
         <>
-            <Card name="Ibrohim" age="20" description="BlaBla" />
+            <Card name="Ibrohim"/>
         </>
     )
 }
