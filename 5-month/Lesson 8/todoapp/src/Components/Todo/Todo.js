@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Todo({ task, id, isEditing, isCompleted, func}) {
+export default function Todo({ task, id, isEditing, isCompleted}) {
   return (
     <div 
     style={
@@ -15,7 +15,7 @@ export default function Todo({ task, id, isEditing, isCompleted, func}) {
         <input type="checkbox"/>
         <h2>{task}</h2>
         <button>Edit</button>
-        <button onClick={() => func(id)}>Delete</button>
+        <button>Delete</button>
     </div>
   )
 }

@@ -18,23 +18,11 @@ export default function TodoApp() {
         setTodos([...todos, todo]);
     }
 
-    // function deleteTodo(id) {
-    //     const isAccepted = confirm("Do you want to delete this!");
-    //     if(isAccepted) {
-    //         const newArray = [];
-    //         todos.forEach(item => {
-    //             if(item.id !== id) {
-    //                 newArray.push(item);
-    //             }
-    //             todos = newArray;
-    //         })
-    //     }
-    // }
 
   return (
     <>
     <TodoForm addTodo={addTodo} />
-    <TodoList todos={ todos }/>
+    <TodoList todos={ todos } />
     </>
   )
 }
