@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/signUp.css">
-    <title>Document</title>
+    <title>Todo API</title>
 </head>
 
 <body>
@@ -14,11 +14,13 @@
 
     <div class="card">
         <h2>Sign Up</h2>
-        <input class="signUpInput" placeholder="Enter your name" type="text">
-        <input class="signUpSecondInput" placeholder="Enter your password" type="password">
-        <div class="button_div">
-            <button class="btn">Sign Up</button>
-        </div>
+        <form id="inputForm">
+            <input class="signUpInput" placeholder="Enter your name" type="text">
+            <input class="signUpSecondInput" placeholder="Enter your password" type="password">
+            <div class="button_div">
+                <button type="submit" class="btn">Sign Up</button>
+            </div>
+        </form>
         <div class="card_link">
             <p>Already have account?</p>
             <a href="signIn.html">Sign In</a>
@@ -27,6 +29,8 @@
 
     <script src="./js/signUp.js"></script>
     <script src="./js/signIn.js"></script>
+    <script src="./js/main.js"></script>
+
 </body>
 
 </html>
