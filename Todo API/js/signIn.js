@@ -14,7 +14,7 @@ signInForm.addEventListener("submit", (e) => {
     const username = json[0].username;
 
     if(password === seconInputValue && username === inputValue) {
-        alert("Login successfully!")
+        window.location.replace("index.html")
     } else {
         alert("Your password or username is incorrect!")
     }
@@ -26,8 +26,8 @@ signInForm.addEventListener("submit", (e) => {
         },
 
         body: JSON.stringify({
-            username: "Ibrohim2008",
-            password: "2239",
+            username: username,
+            password: password,
         })
     })
     .then(res => res.json())

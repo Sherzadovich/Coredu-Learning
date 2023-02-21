@@ -15,13 +15,15 @@ formEl.addEventListener("submit", (e) => {
                 let arr = [];
 
                 const inputObj = {
-                    username: "Ibrohim2010",
-                    password: "3456",
+                    username: signUpEl,
+                    password: signUpInputEl,
                 }
 
                 arr.push(inputObj);
                 console.log(arr);
                 localStorage.setItem("token", JSON.stringify(arr))
+                alert("Signup successfully!");
+                window.location.replace("signIn.html")
             } else {
                 alert("Username or Password didn't enter!")
             }
@@ -33,8 +35,8 @@ formEl.addEventListener("submit", (e) => {
         },
 
         body: JSON.stringify({
-            username: "Ibrohim2010",
-            password: "3456",
+            username: signUpEl,
+            password: signUpInputEl,
         })
     })
     .then((res) => {
