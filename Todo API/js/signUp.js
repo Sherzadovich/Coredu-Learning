@@ -22,8 +22,7 @@ formEl.addEventListener("submit", (e) => {
                 arr.push(inputObj);
                 console.log(arr);
                 localStorage.setItem("token", JSON.stringify(arr))
-                alert("Signup successfully!");
-                window.location.replace("signIn.html")
+                window.location.replace("successfull.html")
             } else {
                 alert("Username or Password didn't enter!")
             }
