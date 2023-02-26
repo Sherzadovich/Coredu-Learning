@@ -5,30 +5,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/signUp.css">
-    <title>Todo API</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Sign up</title>
 </head>
 
 <body>
+    <!-- <div class="center">
+      <h1>Login</h1>
+      <form id="signUpForm">
+        <div class="txt_field">
+          <input type="text"  name="email" id="emailInput" required>
+          <span></span>
+          <label>email</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password" id="passwordInput" required>
+          <span></span>
+          <label>Password</label>
+        </div>
+        <button type="submit">submit</button>
+        <div class="signup_link">
+          Allready registered? <button class="transferToLogin"><a href="#">Sign in</a></button>
+        </div>
+      </form>
+    </div> -->
 
-
-    <div class="card">
-        <h2>Sign Up</h2>
-        <form id="inputForm">
-            <input class="signUpInput" placeholder="Enter your name" type="text">
-            <input class="signUpSecondInput" placeholder="Enter your password" type="password">
-            <div class="button_div">
-                <button type="submit" class="btn">Sign Up</button>
+    <div class="container center">
+        <h1>Sign up</h1>
+        <form id="signUpForm">
+            <div class="txt_field">
+                <input type="text" name="email" id="emailInput" required>
+                <span></span>
+                <label>email</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password" id="passwordInput" required>
+                <span></span>
+                <label>password</label>
+            </div>
+            <button class="submit__btn" type="submit">submit</button>
+            <div class="signup_link">
+                <div class="transfer_wrapper">
+                    <span>Already registered?</span> <a href="./signin.html">Sign in</a>
+                </div>
             </div>
         </form>
-        <div class="card_link">
-            <p>Already have account?</p>
-            <a href="signIn.html">Sign In</a>
-        </div>
     </div>
 
-    <script src="./js/signUp.js"></script>
 
+    <script src="./js/signUp.js"></script>
 </body>
 
 </html>

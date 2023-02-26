@@ -1,51 +1,33 @@
-// Sign Up Section
-const signUpInput = document.querySelector(".signUpInput")
-const signUpSecondInput = document.querySelector(".signUpSecondInput")
-const buttonEl = document.querySelector(".btn")
-const formEl = document.getElementById("inputForm")
+//* Sign up
+const signUpFormEl = document.querySelector("#signUpForm");
+const emailInputEl = document.querySelector("#emailInput");
+const passwordInputEl = document.querySelector("#passwordInput");
+const transferToLoginEl = document.querySelector(".transferToLogin");
 
+signUpFormEl.addEventListener("submit", (evt) => {
+  evt.preventDefault();
 
-formEl.addEventListener("submit", (e) => {
-    e.preventDefault();
-    
-    const signUpEl = signUpInput.value;
-    const signUpInputEl = signUpSecondInput.value;
-    
-    if(signUpEl && signUpInputEl) {
-                let arr = [];
+  let bodyObj = {
+    username: emailInputEl.value,
+    password: passwordInputEl.value,
+  };
 
-                const inputObj = {
-                    username: signUpEl,
-                    password: signUpInputEl,
-                }
-
-                arr.push(inputObj);
-                console.log(arr);
-                localStorage.setItem("token", JSON.stringify(arr))
-                window.location.replace("successfull.html")
-            } else {
-                alert("Username or Password didn't enter!")
-            }
-
-    fetch("https:/todo-for-n92.cyclic.app/user/register", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-            username: signUpEl,
-            password: signUpInputEl,
-        })
+  fetch("https://todo-for-n92.cyclic.app/user/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(bodyObj),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.token == undefined) {
+        alert("The user is already exists!");
+      } else {
+        localStorage.setItem("token", JSON.stringify(data.token));
+        window.location.replace("signin.html");
+        alert("The account is successfuly created, please Sign In");
+      }
     })
-    .then((res) => {
-        return res.json()
-    }).then((res) => {
-        console.log(res);
-        localStorage.setItem("user", JSON.stringify(res.token))
-    }).catch(err => {
-        console.log(err);
-    })
-})
-
-
+    .catch((error) => console.log(error));
+});

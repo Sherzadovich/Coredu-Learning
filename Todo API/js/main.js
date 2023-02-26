@@ -1,98 +1,189 @@
-const todoForm = document.querySelector("#todoForm");
-const cardsEl = document.querySelector("#cards");
+const token = localStorage.getItem("token");
+const btn = document.querySelector(".logOutBtn");
+const tasksEl = document.querySelector("#tasks");
 
-let todos = JSON.parse(localStorage.getItem('myUser')) || [];
+const newTaskFormEl = document.querySelector("#new-task-form");
+const newTaskInputEl = document.querySelector("#new-task-input");
 
-render()
+const editBtnEl = document.querySelector(".edit");
+const deleteBtnEl = document.querySelector(".delete");
 
-function render() {
-    cardsEl.innerHTML = "";
-    for(let i = 0; i < todos.length; i++) {
-        const template = 
-        todos[i].isEditing ? `
-        <form class="todoCard col-md-3 p-3 bg-light d-flex flex-column align-items-end" onsubmit="return editTodo(event, ${todos[i].id})">
-            <input type="text" class="form-control" id="editingTodo" placeholder="Edit your todo..." value="${todos[i].task}">
-            <div>
-                <button type="submit" class="btn btn-success mt-3">Save</button>
-                <button type="button" class="btn btn-danger mt-3" onclick="toggleEditing(${todos[i].id})">Cancel</button>
-            </div>
-        </form>`
-        : `
-        <div class="todoCard col-md-3 p-3 ${todos[i].isCompleted ? "bg-success text-light" : "bg-light"} rounded">
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="todo-${todos[i].id}"
-                    ${todos[i].isCompleted ? "checked" : ""} 
-                    onchange="toggleComplete(${todos[i].id})">
-                    <label class="form-check-label" for="todo-${todos[i].id}" 
-                    >${todos[i].task}</label>
-                </div>
-                <div class="d-flex justify-content-end gap-3 mt-4">
-                    <button class="btn btn-warning" onclick="toggleEditing(${todos[i].id})">Edit</button>
-                    <button class="btn btn-danger" onclick="deleteTodo(${todos[i].id})">Delete</button>
-                </div>
-        </div>
-        `;
+const editEl = document.querySelector("#edit");
+const editBtnSubmitEl = document.querySelector(".editBtnSubmit");
+const editInputEl = document.querySelector(".editInput");
 
-        cardsEl.innerHTML = cardsEl.innerHTML + template;
-    }
-};
+let todo = [];
 
-todoForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const task = event.target[0].value;
+//* Getting all todos
+if (!token) {
+  window.location.replace("signup.html");
+} else if (token) {
+  fetch("https://todo-for-n92.cyclic.app/todos/all", {
+    method: "GET",
+    headers: {
+      "x-access-token": token,
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      todo = res.allTodos || [];
+      render();
+    })
+    .catch((error) => console.log(res));
+} else {
+  null;
+}
 
-    const todo = {
-        id: todos.length,
-        task,
-        isEditing: false,
-        isCompleted: false,
-    };
-
-    todos.push(todo);
-    localStorage.setItem("myUser", JSON.stringify(todos));
-    render();
-    console.log(todos);
+btn.addEventListener("click", () => {
+  localStorage.removeItem("token");
+  window.location.replace("signin.html");
 });
 
-function toggleComplete(id) {
-    for(let i=0; i < todos.length; i++) {
-        if(todos[i].id === id) {
-            todos[i].isCompleted = !todos[i].isCompleted;
-        }
-    }
-    render();
-};
+//* Submit TODO
 
+//* Render function
+function render() {
+  tasksEl.innerHTML = "";
+  for (let i = 0; i < todo.length; i++) {
+    const template = `
+            <div class="task ${
+              todo[i].completed ? "bg-success text-light" : "bg-dark"
+            }">
+                <div class="content">
+                    <input 
+                        type="text" 
+                        class="text" 
+                        value="${todo[i].task}"
+                        readonly>
+                </div>
+                <div class="actions">
+                    <div class="form-check form-switch">
+                        <input 
+                            class="form-check-input"
+                            type="checkbox"
+                            role="switch"
+                            id="flexSwitchCheckChecked"
+                            onchange="toggleComplete('${todo[i]._id}')"
+                            ${todo[i].completed && "checked"}>
+                    </div>
+                    <button class="edit" onclick="editTodo()">Edit</button>
+                    <button class="delete" onclick="deleteTodo('${
+                      todo[i]._id
+                    }')">Delete</button>
+                </div>
+            </div>
+            <form class="input-group mb-3 editEl d-none" id="edit">
+  				      <input type="text" value="${
+                  todo[i].task
+                }" class="form-control bg-dark text-light editInput" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary bg-danger text-light " type="button">Cancel</button>
+  				      <button class="btn btn-outline-secondary bg-success text-light editBtnSubmit" type="submit" id="button-addon2">Submit</button>
+				    </form>`;
+
+    tasksEl.innerHTML = template + tasksEl.innerHTML;
+  }
+}
+
+//* Add new todo
+newTaskFormEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  let task = newTaskInputEl.value;
+
+  fetch("https://todo-for-n92.cyclic.app/todos/add", {
+    method: "POST",
+    headers: {
+      "x-access-token": token,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      task: task,
+    }),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      todo.push(res.todo);
+      render();
+    })
+    .catch((err) => console.log(err));
+
+  newTaskInputEl.value = "";
+});
+
+//* Toggle complete function
+function toggleComplete(smth) {
+  fetch(`https://todo-for-n92.cyclic.app/todos?id=${smth}`, {
+    method: "PUT",
+    headers: {
+      "x-access-token": token,
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      todo = todo.map((id) => {
+        if (id._id === res.todo._id) {
+          todo[id] = res.todo;
+        } else {
+          todo[id] = id;
+        }
+        return todo[id];
+      });
+      render();
+    })
+    .catch((err) => console.log(err));
+}
+
+//* Delete todo
 function deleteTodo(id) {
-    const isAccepted = confirm("Do you really delete this todo?")
-    if(isAccepted) {
-        const newArray = [];
-        for(let i=0; i<todos.length; i++) {
-        if(todos[i].id !== id) {
-            newArray.push(todos[i]);
-        }
-    }
-    todos = newArray;
-    render();
-    }
+  const isAccepted = confirm("Are you sure to delete??");
+  if (isAccepted) {
+    fetch(`https://todo-for-n92.cyclic.app/todos/${id}`, {
+      method: "DELETE",
+      headers: {
+        "x-access-token": token,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        todo = todo.filter((todo) => {
+          if (
+            id === res.deletedTodo._id &&
+            res.deletedTodo._id === todo._id &&
+            id === todo._id
+          ) {
+            return null;
+          } else {
+            return todo;
+          }
+        });
+
+        render();
+      })
+      .catch((error) => console.log(error));
+  }
 }
 
-function toggleEditing(id) {
-    for(let i=0; i< todos.length; i++) {
-        if(todos[i].id === id) {
-            todos[i].isEditing = !todos[i].isEditing;
-        }
-    }
-    render();
-}
+//* Editing todos
 
-function editTodo(event, id) {
-    event.preventDefault();
-    for(let i = 0; i < todos.length; i++) {
-        if(todos[i].id === id) {
-            todos[i].task = event.target[0].value;
-            todos[i].isEditing = !todos[i].isEditing;
-        }
-    }
-    render();
+function editTodo(id) {
+  console.dir(editEl);
+
+  // editBtnSubmitEl.addEventListener("submit", (value) => {
+  //   let task = editInputEl.value;
+
+  //   fetch(`https://todo-for-n92.cyclic.app/todos?id=${id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "x-access-token": token,
+  //     },
+  //     body: JSON.stringify(task),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((error) => console.log(error));
+  // });
 }

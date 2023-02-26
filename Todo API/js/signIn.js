@@ -1,35 +1,30 @@
-// Sign In Section 
-const signInInput = document.querySelector(".signInInput");
-const signInSecondInput = document.querySelector(".signInSecondInput");
-const signInForm = document.querySelector("#signInForm");
+//* Sign in
+const signUpFormEl = document.querySelector("#signUpForm");
+const emailInputEl = document.querySelector("#emailInput");
+const passwordInputEl = document.querySelector("#passwordInput");
+const transferToLoginEl = document.querySelector(".transferToLogin");
 
-const json = JSON.parse(localStorage.getItem("token"))
-signInForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+signUpFormEl.addEventListener("submit", (evt) => {
+  evt.preventDefault();
 
-    const inputValue = signInInput.value;
-    const seconInputValue = signInSecondInput.value
+  let bodyObj = {
+    username: emailInputEl.value,
+    password: passwordInputEl.value,
+  };
+  console.log(bodyObj);
 
-    const password = json[0].password;
-    const username = json[0].username;
-
-    if(password === seconInputValue && username === inputValue) {
-        window.location.replace("index.html")
-    } else {
-        alert("Your password or username is incorrect!")
-    }
-    
-    fetch("https:/todo-for-n92.cyclic.app/user/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify({
-            username: username,
-            password: password,
-        })
+  fetch("https://todo-for-n92.cyclic.app/user/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(bodyObj),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      localStorage.setItem("token", res.token);
+      window.location.replace("/index.html");
     })
-    .then(res => res.json())
-    .then(res => console.log(res))
-})
+    .catch((err) => console.log(err));
+});

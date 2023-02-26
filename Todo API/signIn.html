@@ -5,29 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/signIn.css">
-    <title>Todo API</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Sign in</title>
 </head>
 
 <body>
-
-    <div class="card">
-        <h2>Sign In</h2>
-        <form id="signInForm">
-            <input class="signInInput" placeholder="Enter your name" type="text">
-            <input class="signInSecondInput" placeholder="Enter your password" type="password">
-            <div class="button_div">
-                <button type="submit" class="btn">Sign In</button>
+    <div class="container center">
+        <h1>Sign in</h1>
+        <form id="signUpForm">
+            <div class="txt_field">
+                <input type="text" name="email" id="emailInput" required>
+                <span></span>
+                <label>email</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password" id="passwordInput" required>
+                <span></span>
+                <label>password</label>
+            </div>
+            <button class="submit__btn" type="submit">submit</button>
+            <div class="signup_link">
+                <div class="transfer_wrapper">
+                    <span>Already have an account?</span> <a href="./signup.html">Sign up</a>
+                </div>
             </div>
         </form>
-        <div class="card_link">
-            <p>Create new account?</p>
-            <a href="signUp.html">Sign Up</a>
-        </div>
     </div>
-
     <script src="./js/signIn.js"></script>
-
 </body>
 
 </html>
