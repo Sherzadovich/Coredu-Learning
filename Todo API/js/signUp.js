@@ -2,7 +2,7 @@
 const signUpFormEl = document.querySelector("#signUpForm");
 const emailInputEl = document.querySelector("#emailInput");
 const passwordInputEl = document.querySelector("#passwordInput");
-const transferToLoginEl = document.querySelector(".transferToLogin");
+// const transferToLoginEl = document.querySelector(".transferToLogin");
 
 signUpFormEl.addEventListener("submit", (evt) => {
   evt.preventDefault();

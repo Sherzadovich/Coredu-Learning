@@ -1,15 +1,15 @@
 //* Sign in
-const signUpFormEl = document.querySelector("#signUpForm");
-const emailInputEl = document.querySelector("#emailInput");
-const passwordInputEl = document.querySelector("#passwordInput");
-const transferToLoginEl = document.querySelector(".transferToLogin");
+const signInFormEl = document.querySelector("#signInForm");
+const secondEmailInputEl = document.querySelector("#secondEmailInput");
+const secondPasswordInput = document.querySelector("#secondPasswordInput");
+// const transferToLoginEl = document.querySelector(".transferToLogin");
 
-signUpFormEl.addEventListener("submit", (evt) => {
+signInFormEl.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
   let bodyObj = {
-    username: emailInputEl.value,
-    password: passwordInputEl.value,
+    username: secondEmailInputEl.value,
+    password: secondPasswordInput.value,
   };
   console.log(bodyObj);
 
@@ -22,9 +22,13 @@ signUpFormEl.addEventListener("submit", (evt) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
-      localStorage.setItem("token", res.token);
-      window.location.replace("/index.html");
+      if (res.token) {
+        console.log(res);
+        localStorage.setItem("token", res.token);
+        window.location.replace("/index.html");
+      } else {
+        alert("Your password or username is incorrect!");
+      }
     })
     .catch((err) => console.log(err));
 });

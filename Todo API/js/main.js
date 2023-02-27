@@ -1,6 +1,7 @@
 const token = localStorage.getItem("token");
 const btn = document.querySelector(".logOutBtn");
 const tasksEl = document.querySelector("#tasks");
+const taskEl = document.querySelector(".content");
 
 const newTaskFormEl = document.querySelector("#new-task-form");
 const newTaskInputEl = document.querySelector("#new-task-input");
@@ -8,10 +9,11 @@ const newTaskInputEl = document.querySelector("#new-task-input");
 const editBtnEl = document.querySelector(".edit");
 const deleteBtnEl = document.querySelector(".delete");
 
-const editEl = document.querySelector("#edit");
+const editEl = document.querySelector("editingProccess");
 const editBtnSubmitEl = document.querySelector(".editBtnSubmit");
 const editInputEl = document.querySelector(".editInput");
 
+console.dir(taskEl);
 let todo = [];
 
 //* Getting all todos
@@ -73,10 +75,10 @@ function render() {
                     }')">Delete</button>
                 </div>
             </div>
-            <form class="input-group mb-3 editEl d-none" id="edit">
+            <form class="input-group mb-3 editingProccess>
   				      <input type="text" value="${
                   todo[i].task
-                }" class="form-control bg-dark text-light editInput" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                }" class="form-control bg-dark text-light editInput position-absolute" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary bg-danger text-light " type="button">Cancel</button>
   				      <button class="btn btn-outline-secondary bg-success text-light editBtnSubmit" type="submit" id="button-addon2">Submit</button>
 				    </form>`;
@@ -170,20 +172,20 @@ function deleteTodo(id) {
 function editTodo(id) {
   console.dir(editEl);
 
-  // editBtnSubmitEl.addEventListener("submit", (value) => {
-  //   let task = editInputEl.value;
+  editBtnSubmitEl.addEventListener("submit", (value) => {
+    let task = editInputEl.value;
 
-  //   fetch(`https://todo-for-n92.cyclic.app/todos?id=${id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "x-access-token": token,
-  //     },
-  //     body: JSON.stringify(task),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((error) => console.log(error));
-  // });
+    fetch(`https://todo-for-n92.cyclic.app/todos?id=${id}`, {
+      method: "PUT",
+      headers: {
+        "x-access-token": token,
+      },
+      body: JSON.stringify(task),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => console.log(error));
+  });
 }
