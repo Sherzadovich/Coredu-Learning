@@ -13,8 +13,9 @@ const editEl = document.querySelector("editingProccess");
 const editBtnSubmitEl = document.querySelector(".editBtnSubmit");
 const editInputEl = document.querySelector(".editInput");
 
-console.dir(taskEl);
+// console.dir(taskEl);
 let todo = [];
+render();
 
 //* Getting all todos
 if (!token) {
@@ -48,7 +49,13 @@ btn.addEventListener("click", () => {
 function render() {
   tasksEl.innerHTML = "";
   for (let i = 0; i < todo.length; i++) {
-    const template = `
+    const template = todo.editing
+      ? ` <form class="input-group mb-3 editingProccess">
+            <input type="text" value="${todo[i].task}" class="form-control bg-dark text-light editInput position-absolute" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary bg-danger text-light cancelBtn" type="button">Cancel</button>
+            <button class="btn btn-outline-secondary bg-success text-light editBtnSubmit" type="submit" id="button-addon2">Submit</button>
+          </form>`
+      : ` 
             <div class="task ${
               todo[i].completed ? "bg-success text-light" : "bg-dark"
             }">
@@ -69,19 +76,14 @@ function render() {
                             onchange="toggleComplete('${todo[i]._id}')"
                             ${todo[i].completed && "checked"}>
                     </div>
-                    <button class="edit" onclick="editTodo()">Edit</button>
+                    <button class="edit" onclick="todoEditing('${
+                      todo[i]._id
+                    }')">Edit</button>
                     <button class="delete" onclick="deleteTodo('${
                       todo[i]._id
                     }')">Delete</button>
                 </div>
-            </div>
-            <form class="input-group mb-3 editingProccess>
-  				      <input type="text" value="${
-                  todo[i].task
-                }" class="form-control bg-dark text-light editInput position-absolute" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary bg-danger text-light " type="button">Cancel</button>
-  				      <button class="btn btn-outline-secondary bg-success text-light editBtnSubmit" type="submit" id="button-addon2">Submit</button>
-				    </form>`;
+            </div>`;
 
     tasksEl.innerHTML = template + tasksEl.innerHTML;
   }
@@ -169,23 +171,50 @@ function deleteTodo(id) {
 
 //* Editing todos
 
-function editTodo(id) {
-  console.dir(editEl);
-
-  editBtnSubmitEl.addEventListener("submit", (value) => {
-    let task = editInputEl.value;
-
-    fetch(`https://todo-for-n92.cyclic.app/todos?id=${id}`, {
-      method: "PUT",
-      headers: {
-        "x-access-token": token,
-      },
-      body: JSON.stringify(task),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
+function todoEditing(id) {
+  let content = document.querySelector(".content");
+  const task = content.children[0].value;
+  todo.forEach((todo) => {
+    if (todo._id === id) {
+      todo.editing = !todo.editing;
+      fetch(`https:/todo-for-n92.cyclic.app/todos/edit?id=${id}`, {
+        method: "PUT",
+        headers: {
+          "x-access-token": token,
+        },
+        body: JSON.stringify(task),
       })
-      .catch((error) => console.log(error));
+        .then((res) => res.json())
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
   });
+  render();
 }
+
+// function editTodo(id) {
+//   const editBtnSubmit = document.querySelector(".editBtnSubmit");
+//   const cancelBtn = document.querySelector(".cancelBtn");
+//   const editingProccess = document.querySelector(".editingProccess");
+//   const editInput = document.querySelector(".editInput");
+//   // console.dir(editInput);
+//   let task = editInput.value;
+
+//   editingProccess.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//     // console.log(editingProccess);
+
+//     fetch(`https://todo-for-n92.cyclic.app/todos?id=${id}`, {
+//       method: "PUT",
+//       headers: {
+//         "x-access-token": token,
+//       },
+//       body: JSON.stringify(task),
+//     })
+//       .then((res) => res.json())
+//       .then((res) => {
+//         console.log(res);
+//       })
+//       .catch((error) => console.log(error));
+//   });
+// }
