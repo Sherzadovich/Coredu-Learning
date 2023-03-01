@@ -15,7 +15,6 @@ const editInputEl = document.querySelector(".editInput");
 
 // console.dir(taskEl);
 let todo = [];
-render();
 
 //* Getting all todos
 if (!token) {
@@ -51,7 +50,7 @@ function render() {
   for (let i = 0; i < todo.length; i++) {
     const template = todo.editing
       ? ` <form class="input-group mb-3 editingProccess">
-            <input type="text" value="${todo[i].task}" class="form-control bg-dark text-light editInput position-absolute" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="text" value="${todo[i].task}" class="form-control bg-dark text-light editInput" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
             <button class="btn btn-outline-secondary bg-danger text-light cancelBtn" type="button">Cancel</button>
             <button class="btn btn-outline-secondary bg-success text-light editBtnSubmit" type="submit" id="button-addon2">Submit</button>
           </form>`
@@ -85,7 +84,7 @@ function render() {
                 </div>
             </div>`;
 
-    tasksEl.innerHTML = template + tasksEl.innerHTML;
+    tasksEl.innerHTML += template;
   }
 }
 
