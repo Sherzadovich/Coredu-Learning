@@ -41,6 +41,16 @@ export default function Header() {
             Contact
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "active nav__link" : "nav__link"
+            }
+            to="/posts"
+          >
+            Posts
+          </NavLink>
+        </li>
       </ul>
     </header>
   );
