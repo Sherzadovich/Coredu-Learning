@@ -1,0 +1,81 @@
+.container {
+    max-width: 1320px;
+    flex-direction: column;
+}
+
+.card {
+    width: 400px;
+    background-color: white;
+    margin: 30px auto;
+    border-radius: 10px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="checkbox"]  {
+    position: relative;
+    top: 2px;
+    width: 15px;
+    height: 15px;
+    appearance: none;
+    outline: none;
+    transition: .5s;
+}
+input[type="checkbox"]::before  {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #262626;
+    transition: .5s;
+}
+input:checked[type="checkbox"]::before  {
+    border-left: none;
+    border-top: none;
+    width: 10px;
+    border-color: #0f0;
+    transform: rotate(45deg) translate(5px, -10px);
+}
+
+.form label {
+    padding-left: 20px;
+}
+
+.form_button {
+    display: flex;
+    gap: 15px;
+}
+
+.edit_btn {
+    padding: 10px 20px;
+    background-color: rgba(255, 251, 0, 0.952);
+    border: none;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.edit_btn:hover {
+    background-color: rgba(219, 216, 24, 0.952);
+}
+
+.delete_btn {
+    padding: 10px 20px;
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.delete_btn:hover {
+    background-color: rgb(219, 49, 49);
+}

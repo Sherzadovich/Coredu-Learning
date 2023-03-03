@@ -7,7 +7,7 @@ export default function Todo() {
       <h1>Todo App</h1>
       <form>
         <input type="text" />
-        <button>Add Todo</button>
+        <button className="btn">Add Todo</button>
       </form>
     </div>
   );

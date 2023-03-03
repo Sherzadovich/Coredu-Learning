@@ -1,8 +1,37 @@
 .todo {
-    height: 100vh;
     text-align: center;
 }
 
 h1 {
     color: rgb(0, 0, 0);
+}
+
+input[type=text] {
+    width: 100px;
+    padding: 10px 5px;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    transition: width .35s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 250px;
+}
+
+.btn {
+    padding: 8px;
+    background-color: rgb(26, 145, 46);
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.btn:hover {
+    background-color: #444;
 }
