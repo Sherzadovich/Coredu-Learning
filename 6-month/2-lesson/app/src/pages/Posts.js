@@ -16,8 +16,10 @@ export default function Posts() {
   return isLoading ? (
     <h1>Loading...</h1>
   ) : (
-    <div
-      style={{ display: "flex", gap: "50px", justifyContent: "center" }}
-    ></div>
+    <div style={{ display: "flex", gap: "50px", justifyContent: "center" }}>
+      {posts.map((post) => {
+        <Card key={post.id} {...post} />;
+      })}
+    </div>
   );
 }
