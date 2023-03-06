@@ -1,6 +1,7 @@
 .cards {
-    max-width: 1320px;
+    width: 1320px;
     flex-direction: column;
+    margin: 0 auto;
 }
 
 .card {
