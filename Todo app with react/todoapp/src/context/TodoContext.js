@@ -1,9 +1,11 @@
 import { createContext, useState } from "react";
+import React from "react";
 import { v4 as uuid } from "uuid";
 const TodoContext = createContext();
 
 const TodoContextProvider = ({ children }) => {
-  const [todos, setTodos] = useState([]);
+  let [todos, setTodos] = useState([]);
+  let [deletedTodos, setDeletedTodos] = useState([]);
 
   const addTodo = (task) => {
     setTodos([
@@ -21,8 +23,32 @@ const TodoContextProvider = ({ children }) => {
     });
     setTodos(newTodos);
   };
+
+  const deleteTodo = (id) => {
+    const isAccepted = window.confirm("Do you really want to delete this?");
+    if (isAccepted) {
+      todos.filter((todo) => {
+        console.log(todo);
+        if (todo.id === id) {
+          setDeletedTodos(todos);
+        }
+      });
+      todos = deletedTodos;
+    }
+  };
+
+  const toggleEditing = (id) => {
+    todos.forEach((todo) => {
+      if (todo.id === id) {
+        todo.isEditing = !todo.isEditing;
+      }
+    });
+  };
+
   return (
-    <TodoContext.Provider value={{ todos, addTodo, toggleComplete }}>
+    <TodoContext.Provider
+      value={{ todos, addTodo, toggleComplete, deleteTodo }}
+    >
       {children}
     </TodoContext.Provider>
   );

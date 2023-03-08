@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import TodoContext from "../../context/TodoContext";
-import Todo from "../Todo/Todo";
+import TodoList from "../TodoList/TodoList";
 
 function TodoForm() {
   const { todos } = useContext(TodoContext);
@@ -8,7 +8,7 @@ function TodoForm() {
   return (
     <div>
       {todos.map((todo) => (
-        <Todo key={todo.id} {...todo} />
+        <TodoList key={todo.id} {...todo} />
       ))}
     </div>
   );

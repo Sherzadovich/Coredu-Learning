@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
+import TodoContext from "../../context/TodoContext";
 import "../TodoList/TodoList.css";
 
-export default function TodoList() {
+export default function TodoList({ id, task, isComplete }) {
+  const { toggleComplete, deleteTodo } = useContext(TodoContext);
   return (
     <div className="cards">
       <div className="card">
         <div className="form_input">
           <form className="form">
-            <input type="checkbox" id="todoInput" />
-            <label htmlFor="todoInput">Hello</label>
+            <input
+              type="checkbox"
+              id={id}
+              checked={isComplete}
+              onChange={() => toggleComplete(id)}
+            />
+            <label htmlFor={id}>{task}</label>
           </form>
         </div>
         <div className="form_button">
           <button className="edit_btn">Edit</button>
-          <button className="delete_btn">Delete</button>
+          <button className="delete_btn" onClick={() => deleteTodo(id)}>
+            Delete
+          </button>
         </div>
       </div>
     </div>
