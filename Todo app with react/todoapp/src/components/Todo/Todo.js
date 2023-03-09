@@ -16,7 +16,7 @@ export default function Todo() {
       <div className="todo_heading">
         <h1>Todo App</h1>
         <form id="form" onSubmit={handleSubmit(onSubmit)}>
-          <input type="text" {...register("task")} />
+          <input type="text" id="input" {...register("task")} />
           <button className="btn">Add Todo</button>
         </form>
       </div>

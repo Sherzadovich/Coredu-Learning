@@ -11,7 +11,7 @@ h1 {
     color: rgb(0, 0, 0);
 }
 
-input[type=text] {
+#input {
     width: 100px;
     padding: 10px 5px;
     border-radius: 10px 0 0 10px;
@@ -21,7 +21,7 @@ input[type=text] {
     transition: width .35s ease-in-out;
 }
 
-input[type=text]:focus {
+#input:focus {
     width: 250px;
 }
 

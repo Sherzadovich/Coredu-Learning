@@ -22,6 +22,7 @@ const TodoContextProvider = ({ children }) => {
       return todo;
     });
     setTodos(newTodos);
+    localStorage.setItem("user", JSON.stringify(newTodos));
   };
 
   const deleteTodo = (id) => {
@@ -37,16 +38,37 @@ const TodoContextProvider = ({ children }) => {
   };
 
   const toggleEditing = (id) => {
-    todos.forEach((todo) => {
+    const newTodos = todos.map((todo) => {
       if (todo.id === id) {
+        return { ...todo, isEditing: !todo.isEditing };
+      }
+      return todo;
+    });
+    setTodos(newTodos);
+    localStorage.setItem("user", JSON.stringify(newTodos));
+  };
+
+  const editTodo = (event, id) => {
+    event.preventDefault();
+    const data = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.task = event.target[0].value;
         todo.isEditing = !todo.isEditing;
       }
     });
+    setTodos(data);
   };
 
   return (
     <TodoContext.Provider
-      value={{ todos, addTodo, toggleComplete, deleteTodo }}
+      value={{
+        todos,
+        addTodo,
+        toggleComplete,
+        deleteTodo,
+        toggleEditing,
+        editTodo,
+      }}
     >
       {children}
     </TodoContext.Provider>
