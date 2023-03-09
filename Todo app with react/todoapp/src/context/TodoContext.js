@@ -27,13 +27,12 @@ const TodoContextProvider = ({ children }) => {
   const deleteTodo = (id) => {
     const isAccepted = window.confirm("Do you really want to delete this?");
     if (isAccepted) {
-      todos.filter((todo) => {
-        console.log(todo);
-        if (todo.id === id) {
-          setDeletedTodos(todos);
+      const newTodos = todos.filter((todo) => {
+        if (todo.id !== id) {
+          return todo;
         }
       });
-      todos = deletedTodos;
+      setTodos(newTodos);
     }
   };
 
